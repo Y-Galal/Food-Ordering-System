@@ -18,7 +18,7 @@
 void delay_1ms()
 {
 	uint32 i;
-	for(i=0;i<80000;i++)
+	for(i=0;i<=8000;i++)
 	{
 
 	}
@@ -33,12 +33,12 @@ static void configPins(uint8 size)
 	uint8 i= 0;
 	for(i=0;i<4;i++)
 	{
-	PIN_CONFIG PIN = {PORTD,i,OUTPUT,PULL_UP,TWO};
+	PIN_CONFIG PIN = {LCD_DATA_PORT,i,OUTPUT,PULL_UP,TWO};
 	GPIO_configureDigitalPin(&PIN);
 	}
 	for(i=5;i<=7;i++)
 	{
-		PIN_CONFIG PIN = {PORTC,i,OUTPUT,PULL_UP,TWO};
+		PIN_CONFIG PIN = {LCD_CTRL_PORT,i,OUTPUT,PULL_UP,TWO};
 		GPIO_configureDigitalPin(&PIN);
 	}
 }
@@ -134,7 +134,7 @@ void LCD_displayCharacter(uint8 data)
 *  Fucntion description: displays a string on the lcd 
 *  
 */
-void LCD_displayString(const char *Str)
+void LCD_displayString(const uint8 *Str)
 {
 	uint8 i=0;
 	while(Str[i]!='\0')
@@ -175,7 +175,7 @@ void LCD_goToRowColumn(uint8 row,uint8 col)
 *  Fucntion description: shifts the cursor to some place and prints a string on the lcd 
 * 
 */
-void LCD_displayStringRowColumn(uint8 row,uint8 col, const char *Str)
+void LCD_displayStringRowColumn(uint8 row,uint8 col, const uint8 *Str)
 {
 	LCD_goToRowColumn(row,col);
 	LCD_displayString(Str);

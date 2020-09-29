@@ -16,7 +16,7 @@
 
 #define LCD_CTRL_PORT PORTC
 
-#define LCD_DATA_PORT PORTD
+#define LCD_DATA_PORT PORTE
 
 
 /* LCD Commands */
@@ -38,9 +38,9 @@
 void LCD_init(void);
 void LCD_sendCommand(uint8 command);
 void LCD_displayCharacter(uint8 data);
-void LCD_displayString(const char *Str);
+void LCD_displayString(const uint8 *Str);
 void LCD_goToRowColumn(uint8 row,uint8 col);
-void LCD_displayStringRowColumn(uint8 row,uint8 col, const char *Str);
+void LCD_displayStringRowColumn(uint8 row,uint8 col, const uint8 *Str);
 void LCD_clearScreen(void);
 
 

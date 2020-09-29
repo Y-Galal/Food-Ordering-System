@@ -28,11 +28,13 @@
 
     #define FULL_PORT 0xFF
 
-    #define KEYPAD_PORT_OUT ACCESS_REG(PORTB,GPIODATA)      /*Change these to connect the keypad to another port*/
+    #define KEYPAD_PORT_OUT1 (ACCESS_REG(PORTB,GPIODATA))      /*Change these to connect the keypad to another port*/
+    #define KEYPAD_PORT_OUT2 (ACCESS_REG(PORTA,GPIODATA))
 
-    #define KEYPAD_PORT_IN PORTB
+    #define KEYPAD_PORT_IN PORTA
 
-    #define KEYPAD_PORT_DIR ACCESS_REG(PORTB,GPIODIR)
+    #define KEYPAD_PORT_DIR1 (ACCESS_REG(PORTB,GPIODIR))
+    #define KEYPAD_PORT_DIR2 (ACCESS_REG(PORTA,GPIODIR))
 
 /*******************************************************************************
  *                      Functions Prototypes                                   *
